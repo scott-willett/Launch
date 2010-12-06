@@ -68,6 +68,7 @@ fi
 # Gets the defined template stylesheets, views, and gemfile
 PUBLIC=${LAUNCH_DIR}${TEMPLATES_DIR}${TEMPLATE}/public/
 APP=${LAUNCH_DIR}${TEMPLATES_DIR}${TEMPLATE}/app/
+CONFIG=${LAUNCH_DIR}${TEMPLATES_DIR}${TEMPLATE}/config/
 GEMS=${LAUNCH_DIR}${TEMPLATES_DIR}${TEMPLATE}/Gemfile
 
 # Create a new rails app
@@ -86,6 +87,7 @@ fi
 echo "Copying the custom layout files over"
 cp -r ${PUBLIC} ./
 cp -r ${APP} ./
+cp -r ${CONFIG} ./
 
 # Run custom commands if command.sh is present
 if [ -e "${LAUNCH_DIR}${TEMPLATES_DIR}${TEMPLATE}/commands.sh" ]; then
