@@ -1,0 +1,172 @@
+@site-width: 1024px;
+@site-align: center;
+
+@bg-color: #ffffff;
+@div-bg-color: #ffffff;
+
+@font-family: Verdana, Helvetica, sans-serif;
+@font-color: #000000;
+@line-height: 18px;
+
+@nav-button-width: 75px;
+@nav-text-color: #000000;
+@nav-text-hover: #333333;
+@nav-button-color: #eeeeee;
+@nav-button-hover: #cccccc;
+
+@h1-size: 58px;
+@h2-size: 32px;
+@h3-size: 28px;
+@h4-size: 24px;
+
+@h1-color: #000000;
+@h2-color: #000000;
+@h3-color: #000000;
+@h4-color: #000000;
+
+@p-size: 18px;
+@p-color: #333333;
+
+@a-decoration: underline;
+@a-color: #000000;
+@a-visited: #555555;
+@a-hover: #333333;
+@a-hover-bg: #cccccc;
+
+.rounded_corners (@radius: 10px) {
+  -moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+  border-radius: @radius;
+}
+
+body {
+  margin: 0px;
+  background-color: @bg-color;
+  font-family: @font-family;
+  line-height: @line-height;
+  color: @font-color;
+  text-align: @site-align;
+}
+
+#container {
+  width: @site-width;
+  text-align: left;
+}
+
+#header {
+  background-color: @div-bg-color;
+  .rounded_corners;
+}
+
+#account {
+  background-color: @div-bg-color;
+  .rounded_corners;
+}
+
+#nav {
+  background-color: @div-bg-color;
+  .rounded_corners;
+  h2 {
+    display: inline-block;
+    width: @nav-button-width;
+    a {
+      color: @nav-text-color;
+      background-color: @nav-button-color;
+    }
+    a:hover {
+      color: @nav-text-hover;
+      background-color: @nav-button-hover
+    }
+  }
+}
+
+#content {
+  background-color: @div-bg-color;
+  .rounded_corners;
+}
+
+#footer {
+  background-color: @div-bg-color;
+  .rounded_corners;
+}
+
+h1 {
+  font-size: @h1-size;
+  color: @h1-color;
+}
+
+h1 {
+  font-size: @h1-size;
+  color: @h1-color;
+}
+
+h2 {
+  font-size: @h2-size;
+  color: @h2-color;
+}
+
+h3 {
+  font-size: @h3-size;
+  color: @h3-color;
+}
+
+h4 {
+  font-size: @h4-size;
+  color: @h4-color;
+}
+
+p {
+  font-size: @p-size;
+  color: @p-color;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a { color: @a-color; decoration: @a-decoration; }
+a:visited { color: @a-visited; }
+a:hover { color: @a-hover; background-color: @a-hover-bg; }
+
+/* Other css generated from scaffolds */
+
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+#notice {
+  color: green;
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#error_explanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  margin-bottom: 0px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#error_explanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
