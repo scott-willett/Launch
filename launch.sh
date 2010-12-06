@@ -67,7 +67,7 @@ fi
 
 # Gets the defined template stylesheets, views, and gemfile
 PUBLIC=${LAUNCH_DIR}${TEMPLATES_DIR}${TEMPLATE}/public/
-LAYOUT=${LAUNCH_DIR}${TEMPLATES_DIR}${TEMPLATE}/application.html.erb
+APP=${LAUNCH_DIR}${TEMPLATES_DIR}${TEMPLATE}/app/
 GEMS=${LAUNCH_DIR}${TEMPLATES_DIR}${TEMPLATE}/Gemfile
 
 # Create a new rails app
@@ -76,20 +76,16 @@ rails new ${RAILS_APP}
 cd ${RAILS_APP}
 
 # Install defined gems for the app
-if [ -e "$GEMS" ]; then
+if [ -e "${GEMS}" ]; then
   echo "Installing Gems..."
   cp ${GEMS} ./
   bundle install
 fi
 
-# Get rid of default index.html and stylesheets from the rails app
-echo "Removing default index.html and stylesheets..."
-rm -rf public/
-
 # Copies the layout to the rails app for use. Overwrites the current layout.
 echo "Copying the custom layout files over"
-cp -rf ${PUBLIC} ./
-cp ${LAYOUT} app/views/layouts/
+cp -r ${PUBLIC} ./
+cp -r ${APP} ./
 
 # Run custom commands if command.sh is present
 if [ -e "${LAUNCH_DIR}${TEMPLATES_DIR}${TEMPLATE}/commands.sh" ]; then
