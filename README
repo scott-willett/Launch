@@ -1,8 +1,6 @@
-== Launch
-
 == Author
 
-Scott Willett
+Scott Willett - scottwillett@exemail.com.au
 
 == Change Log
 
@@ -10,6 +8,7 @@ V0.2 (06/12/2010) - Added 'commands.sh' to be run from a template directory at t
 V0.1 (06/12/2010) - Initial version
 
 == Description
+
 Launch is a Ruby on Rails app template creator. It lets you create public files, a main layout (application.html.erb), and a Gemfile to quickly create a new rails app for a showoff prototype, for faster development, or for automatically doing tedious tasks when creating a new rails app (eg: adding authentication, bundling gems, creating a common model or scaffold).<br /> Runs good on Ubuntu, haven't tested on any other platforms.
 
 Please email me if you have any suggestions, want to contribute etc. Keep in mind I only started working on this on 06/12 for 4 hours and have never created a bash script before.
