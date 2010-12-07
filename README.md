@@ -14,19 +14,22 @@ Please email me if you have any suggestions, want to contribute etc. Keep in min
 
 Usage
 -----
-
-This app is setup ideally for Ubuntu. Place the 'launch' directory in your home folder. Feel free to place the folder elsewhere, but you will have to update setup.sh and launch.sh to point to the right directories.
+<pre>
+This app is setup ideally for Ubuntu. Place the 'launch' directory in your home folder. Feel free to place the folder elsewhere, but you will 
+have to update setup.sh and launch.sh to point to the right directories.
 
 sh setup.sh
 
 Uncomment the appropriate code to replace the rails scaffold template.
-This command will create a symbolic link and  allow the command below to be used.
-
+This command will create a symbolic link and  allow the command below 
+to be used.
+</pre>
 <pre>
 launch App_Name Template
 
 App_Name = The name of the new rails app you wish to create
-Template = Name of the launch template to use. If the param isn't specified, the 'default' template is used.
+Template = Name of the launch template to use. If the param isn't specified, 
+the 'default' template is used.
 </pre>
 <pre>
 eg: launch MyRailsApp
@@ -34,7 +37,8 @@ eg: launch MyRailsApp
 
 launch snapshot Template
 
-This command will recursively copy all files and folders in a directory to the launch tempate directory within the folder specified with Template.
+This command will recursively copy all files and folders in a directory to 
+the launch tempate directory within the folder specified with Template.
 </pre>
 
 ToDo
@@ -45,7 +49,7 @@ ToDo
 - Workout how to get github pretty README markups happening
 - Check if it works on a Mac
 - Perhaps port the program to ruby, or as a gem/rails plugin
-- Create some templates to provide quick examples<
+- Create some templates to provide quick examples
 - If this plugin is popular, create a website to host launch templates by other people
 - Have an 'describe' file in each template so when 'launch template describe' is run it will echo information on the layout in the case where there are a heap load of templates and you forget the purpose of a template
 - Get rails to auto create common variables you will use (eg: title, header) if it's useful
