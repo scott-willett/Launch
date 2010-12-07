@@ -50,8 +50,8 @@ if [ ! -e "$LAUNCH_DIR" ]; then
 fi
 
 # The name of the directory holding the launch templates
-TEMPLATES_DIR=templates/     
-if [ ! -e "${LAUNCH_DIR}${TEMPLATES_DIR}" ]; then
+TEMPLATES_DIR=${LAUNCH_DIR}templates/     
+if [ ! -e "${TEMPLATES_DIR}" ]; then
   echo
   echo "Templates directory doesn't exist. Aborting..."
   echo
@@ -66,10 +66,7 @@ if [${2} == ""]; then
 fi
 
 # Gets the defined template stylesheets, views, and gemfile
-PUBLIC=${LAUNCH_DIR}${TEMPLATES_DIR}${TEMPLATE}/public/
-APP=${LAUNCH_DIR}${TEMPLATES_DIR}${TEMPLATE}/app/
-CONFIG=${LAUNCH_DIR}${TEMPLATES_DIR}${TEMPLATE}/config/
-GEMS=${LAUNCH_DIR}${TEMPLATES_DIR}${TEMPLATE}/Gemfile
+GEMFILE=${TEMPLATES_DIR}${TEMPLATE}/Gemfile
 
 # Create a new rails app
 echo "Creating app: ${RAILS_APP}..."
@@ -77,22 +74,21 @@ rails new ${RAILS_APP}
 cd ${RAILS_APP}
 
 # Install defined gems for the app
-if [ -e "${GEMS}" ]; then
+if [ -e "${GEMFILE}" ]; then
   echo "Installing Gems..."
-  cp ${GEMS} ./
+  cp ${GEMFILE} ./
   bundle install
 fi
 
 # Copies the layout to the rails app for use. Overwrites the current layout.
-echo "Copying the custom layout files over"
-cp -r ${PUBLIC} ./
-cp -r ${APP} ./
-cp -r ${CONFIG} ./
+echo "Copying the template files over"
+cp -r ${TEMPLATES_DIR}${TEMPLATE}/* ./
 
 # Run custom commands if command.sh is present
-if [ -e "${LAUNCH_DIR}${TEMPLATES_DIR}${TEMPLATE}/commands.sh" ]; then
+if [ -e "commands.sh" ]; then
   echo "Launching custom template commands..."
-  sh ${LAUNCH_DIR}${TEMPLATES_DIR}${TEMPLATE}/commands.sh
+  sh commands.sh
+  rm commands.sh
 fi
 
 # Complete
