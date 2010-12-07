@@ -20,7 +20,7 @@ RAILS_APP=$1
 HELP=-h
 
 # If no params are defined, show a help message
-if [ -z "$1" ]; then
+if [ -z "$1" ] || [ "$1" = "help" ] || [ "$1" = "-h" ]; then
   echo
   echo "Author:       Scott Willett"
   echo "Version:      V0.1 (06/12/2010)"
@@ -58,11 +58,37 @@ if [ ! -e "${TEMPLATES_DIR}" ]; then
   exit 1
 fi
 
+if [ "$1" = "snapshot" ] && [ ! -z "$2" ]; then
+  TEMPLATE=$2                         
+  if [ -e "${TEMPLATES_DIR}${TEMPLATE}/" ]; then
+    echo "Template exists. Overwrite? [y or n]: "
+    read INPUT
+    if [ "$INPUT" != "y" ]; then
+      echo
+      echo "Aborting..."
+      echo
+      exit 0
+    fi
+  else
+    mkdir ${TEMPLATES_DIR}${TEMPLATE}
+  fi
+  echo "Creating snapshot"
+  cp -r ./* ${TEMPLATES_DIR}${TEMPLATE}/
+  exit 0
+fi
+
 # The second parameter of the command indicates the template to use.
 # If no parameter is given, the default template is used.
 TEMPLATE=$2                         
-if [${2} == ""]; then
+if [ "$2" = "" ]; then
   TEMPLATE=default
+fi
+
+if [ ! -e "${TEMPLATES_DIR}${TEMPLATE}" ]; then
+  echo
+  echo "Template '$TEMPLATE' doesn't exist. Aborting..."
+  echo
+  exit 1
 fi
 
 # Gets the defined template stylesheets, views, and gemfile
