@@ -22,18 +22,20 @@ sh setup.sh
 Uncomment the appropriate code to replace the rails scaffold template.
 This command will create a symbolic link and  allow the command below to be used.
 
-launch <App_Name> <Template>
+<pre>
+launch App_Name Template
 
 App_Name = The name of the new rails app you wish to create
 Template = Name of the launch template to use. If the param isn't specified, the 'default' template is used.
-
+</pre>
+<pre>
 eg: launch MyRailsApp
-    launch MyRailsApp simple_template</pre>
+    launch MyRailsApp simple_template
 
-launch snapshot <Template>
+launch snapshot Template
 
-This command will recursively copy all files and folders in a directory to the launch tempate directory within the folder specified with <Template>.
- 
+This command will recursively copy all files and folders in a directory to the launch tempate directory within the folder specified with Template.
+</pre>
 
 ToDo
 ----
