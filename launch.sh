@@ -69,7 +69,7 @@ fi
 GEMFILE=${TEMPLATES_DIR}${TEMPLATE}/Gemfile
 
 # Create a new rails app
-echo "Creating app: ${RAILS_APP}..."
+echo "Creating app: ${RAILS_APP}"
 rails new ${RAILS_APP}
 cd ${RAILS_APP}
 
@@ -82,6 +82,9 @@ fi
 
 # Copies the layout to the rails app for use. Overwrites the current layout.
 echo "Copying the template files over"
+echo "- Copying global template over"
+cp -r ${TEMPLATES_DIR}global/* ./
+echo "- Copying template: ${TEMPLATE}"
 cp -r ${TEMPLATES_DIR}${TEMPLATE}/* ./
 
 # Run custom commands if command.sh is present
